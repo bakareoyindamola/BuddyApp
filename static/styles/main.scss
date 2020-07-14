@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+$textColor: #3391CC;
+$textLeadColor: #4F4F4F;
+$textHeaderColor: #022B69;
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+    counter-reset: why-counter;
+}
+
+h1,
+h2,
+h3,
+h4,
+h4,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+@mixin maximumWidth {
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 116px;
+}
+
+@mixin h2 {
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+@mixin button($width) {
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background-color: $textColor;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 22px;
+    padding: 16px 0;
+    max-width: $width;
+    width: 100%;
+    text-align: center;
+}
+
+@mixin backgroundImage($arg) {
+    background-image: url($arg);
+    background-repeat: no-repeat;
+    background-position: bottom -4px right -4px;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin padding($top, $bottom) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+// Header Styles
+header {
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.04);
+    padding: 16px 0;
+
+    nav {
+        @include maximumWidth;
+    }
+}
+
+// Hero Styles
+.heroSection {
+    position: relative;
+    overflow: hidden;
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        z-index: 2;
+        background-color: $textHeaderColor;
+    }
+
+    .first {
+        top: 0;
+    }
+
+    .second {
+        top: 33.3%;
+    }
+
+    .third {
+        top: 66.6%;
+    }
+
+    .heroWrapper {
+        @include maximumWidth;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        @include padding(104px, 89px);
+    
+        .heroContents {
+            max-width: 552px;
+            width: 100%;
+            padding-bottom: 32px;
+    
+            .topText {
+                @include h2;
+                line-height: 62px;
+                color: $textColor;
+                margin-bottom: 23px;
+            }
+    
+            .leadText{
+                font-size: 1rem;
+                line-height: 22px;
+                color: $textLeadColor;
+                max-width: 514px;
+                margin-bottom: 59px;
+            }
+    
+            .notifiedText {
+                font-weight: 500;
+                font-size: 1.5rem;
+                line-height: 26px;
+                color: $textLeadColor;
+            }
+    
+            form {
+                margin: 23px 0 64px;
+                width: 100%;
+                display: flex;
+    
+                input {
+                    width: 100%;
+                    margin-right: 10px;
+                    border: 1px solid #BDBDBD;
+                    border-radius: 4px;
+                    font-size: 1rem;
+                    line-height: 22px;
+                    padding: 0 32px;
+                    outline: none;
+                }
+    
+                input::placeholder {
+                    color: #E0E0E0;
+                }
+    
+                button {
+                    @include button(156px);
+                }
+            }
+    
+            .timer {
+                display: flex;
+                justify-content: space-between;
+                max-width: 493px;
+                width: 100%;
+    
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+    
+                    h2 {
+                        @include h2;
+                        color: $textLeadColor;
+                        margin-bottom: 22px;
+                    }
+    
+                    p {
+                        font-size: 1.5rem;
+                        line-height: 26px;
+                        color: $textColor;
+                    }
+                }
+            }
+        }
+    
+        .heroImage {
+            width: 100%;
+    
+            svg {
+                
+            }
+        }
+    }
+}
+
+
+// Smart Features Styles
+.smartFeatures {
+    background: #F4F8FC;
+    @include padding(117px, 114px);
+    
+    .smartFeatures-content {
+        @include maximumWidth();
+
+        h2 {
+            font-size: 2.75rem;
+            line-height: 26px;
+            color: $textHeaderColor;
+            text-align: center;
+        }
+
+        .featuresCard {
+            max-width: 1207px;
+            margin: auto;
+            margin-top: 74px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 393px;
+            grid-column-gap: 32px;
+
+            .card {
+                box-shadow: 1px 2px 4px rgba(214, 217, 223, 0.5);
+                border-radius: 10px;
+                background-color: #FFFFFF;
+                padding: 32px;
+
+                svg {
+                    margin-bottom: 22px;
+                }
+
+                h3 {
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    line-height: 26px;
+                    color: $textHeaderColor;
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 22px;
+                    color: rgba(2, 43, 105, 0.8);
+                    margin-top: 20px;
+                }
+            }
+
+            .card-1 {
+                @include backgroundImage("../images/voice-background.svg")
+            }
+
+            .card-2 {
+                @include backgroundImage("../images/mood-background.svg")
+            }
+
+            .card-3 {
+                @include backgroundImage("../images/local-dialect-background.svg")
+            }
+        }
+    }
+}
+
+// Introduction Styles
+.introductionWrapper {
+
+    .introductionContents {
+        @include maximumWidth();
+        @include flex();
+        @include padding(178px, 193px);
+
+        .introductionText {
+            max-width: 546px;
+            width: 100%;
+
+            h2 {
+                font-weight: 600;
+                font-size: 40px;
+                line-height: 44px;
+                color: $textHeaderColor;
+                margin-bottom: 42px;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 22px;
+                color: rgba(2, 43, 105, 0.8);
+                margin-bottom: 20px;
+            }
+
+            a {
+                display: inline-block;
+                margin-top: 81px;
+                @include button(222px);
+            }
+        }
+    }
+}
+
+// Why Download Styles
+.whyWrapper {
+    background-color: $textColor;
+    @include padding(135px, 129px)
+
+    .whyContents {
+        @include maximumWidth();
+        @include flex();
+        color: #FFFFFF;
+
+        .whyText {
+            h2 {
+                font-weight: 600;
+                font-size: 2.5rem;
+                line-height: 44px;
+                margin-bottom: 56px;
+            }
+
+            .whyItemWrapper {
+                margin-left: 58px;
+
+                .whyItem {
+                    display: flex;
+                    width: 100%;
+                    margin-bottom: 104px;
+    
+                    .whyNumber {
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        max-width: 48px;
+                        width: 100%;
+    
+                        &::after {
+                            position: relative;
+                            counter-increment: why-counter;
+                            content: "0" counter(why-counter);
+                            font-size: 2.5rem;
+                            font-weight: 600;
+                            line-height: 44px;
+                            z-index: 1;
+                        }
+        
+                        // &::before {
+                        //     content: "";
+                        //     background-color: $textHeaderColor;
+                        //     height: 60px;
+                        //     width: 60px;
+                        //     position: absolute;
+                        //     border-radius: 100%;
+                            // top: -10px;
+                            // left: -10px;
+                        // }
+                    }
+    
+                    .whyContent {
+                        max-width: 566px;
+                        width: 100%;
+                        margin-left: 49px;
+    
+                        span {
+                            display: inline-block;
+                            font-weight: 600;
+                            font-size: 1.5rem;
+                            line-height: 26px;
+                            margin-bottom: 42px;
+                        }
+    
+                        p {
+                            font-size: 1rem;
+                            line-height: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

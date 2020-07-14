@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png')}}" />
+    <title>{{name}}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js" integrity="sha512-elauk8NI35rjTlatfRQxeqmJoieQlfm0W8AeQVps+j+KkMDdaqNxVazFzwyU7uSOyeeVn/VLbGYLwOR/D5I6Kw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href= "{{ url_for('static', filename='styles/main.css') }}"/>
+</head>
+<body>
+    <header>
+        <nav class="logo">
+            <a href="#"><img src="../static/images/header-logo.png" alt="" /></a>
+        </nav>
+    </header>
+
+    <section class="heroSection">
+        <!-- <div class="overlay first"></div>
+        <div class="overlay second"></div>
+        <div class="overlay third"></div> -->
+        
+        <main class="heroWrapper">
+            <div class="heroContents">
+                <h2 class="topText">We Are Coming Soon...</h2>
+                <p class="leadText">The busy life has pushed people into loneliness and with no sense of romance. We are working on a great mobile app that can talk to you in your preferred language, tone and mood</p>
+
+                <h3 class="notifiedText">Get notified when we launch</h3>
+                <form method="POST" action="{{ url_for('hello') }}">
+                    <input type="email" placeholder="Enter Email" name="email" />
+                    <button type="submit">Notify Me</button>
+                </form>
+
+                <div class="timer">
+                    <div>
+                        <h2>45</h2>
+                        <p>Day(s)</p>
+                    </div>
+
+                    <div>
+                        <h2>32</h2>
+                        <p>Hours</p>
+                    </div>
+
+                    <div>
+                        <h2>60</h2>
+                        <p>Minutes</p>
+                    </div>
+
+                    <div>
+                        <h2>28</h2>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="heroImage">
+                <svg class="hero-img" width="561" height="489">
+                    <use xlink:href="../static/styles/homepage.svg#hero-image" />
+                </svg>
+            </div>
+        </main>
+    </section>
+
+    <section class="smartFeatures">
+        <div class="smartFeatures-content">
+            <h2>Smart Features</h2>
+
+            <div class="featuresCard">
+                <div class="card card-1">
+                    <svg width="71" height="71">
+                        <use xlink:href="../static/styles/homepage.svg#voice-icon" />
+                    </svg>
+
+                    <h3>Voice Assistant</h3>
+                    <p>Buddy app relieves you of the stress of searching for a romantic partner. This app gives you the opportunity to chat with your prefered tone and voice.</p>
+                </div>
+
+                <div class="card card-2">
+                    <svg width="71" height="71">
+                        <use xlink:href="../static/styles/homepage.svg#mood-icon" />
+                    </svg>
+
+                    <h3>Mood Prediction</h3>
+                    <p>Buddy app relieves you of the stress of searching for a romantic partner. This app predicts your mood based on your body movement and motion.</p>
+                </div>
+
+                <div class="card card-3">
+                    <svg width="71" height="71">
+                        <use xlink:href="../static/styles/homepage.svg#local-dialect-icon" />
+                    </svg>
+
+                    <h3>Local Dialect</h3>
+                    <p>Buddy app relieves you of the stress of searching for a romantic partner. This app gives you the privilege to chat and converse in your preferred local dialect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="introductionWrapper">
+        <main class="introductionContents">
+            <div class="introductionImage">
+                <svg width="546" height="424">
+                    <use xlink:href="../static/styles/homepage.svg#introduction-img" />
+                </svg>
+            </div>
+
+            <div class="introductionText">
+                <h2>Introducing the Buddy App</h2>
+                <p class="introTopText">Buddy app is a mobile app being built to relieve its users of the daily hustle and stress attached witth adolescent. This app is one of its kind and its gives great experience that makes you feel like you are conversing with a real human. However, the Buddy app solves the problem attached with being single and feeling lonely without a romantic partner. This app allows you converse freely in your local dialect.</p>
+                <p class="introLastText">Buddy app brings fun to adulthood. There are lots of single people who are dying of loneliness and no one to love them; Buddy app is here to serve as your romantic partner. With buddy app, no more sense of loneliness or boredom. This app allows you set your romantic partner to talk to you in the tone and language you want.</p>
+                <a href="">Notify Me</a>
+            </div>
+        </main>
+    </section>
+
+    <section class="whyWrapper">
+        <main class="whyContents">
+            <div class="whyText">
+                <h2>Why Download Buddy App?</h2>
+                <div class="whyItemWrapper">
+                    <div class="whyItem">
+                        <span class="whyNumber"></span>
+                        <div class="whyContent">
+                            <span>Chat dirty in your local dialect</span>
+                            <p>Buddy app is a mobile app that gives you the opportunity to chat dirty in your local dialect. Whatever way you want to converse, feel free to chat in your dialect.</p>
+                        </div>
+                    </div>
+    
+                    <div class="whyItem">
+                        <span class="whyNumber"></span>
+                        <div class="whyContent">
+                            <span>Romantic sense of feeling in love</span>
+                            <p>Buddy app gives you a romantic feeling of being in love. This app serves as your romantic partner and you will feel being in real love with buddy app.</p>
+                        </div>
+                    </div>
+    
+                    <div class="whyItem">
+                        <span class="whyNumber"></span>
+                        <div class="whyContent">
+                            <span>Express yourself freely in any mood</span>
+                            <p>Buddy app gives you the opportunity to express yourself in any mood you are. Whether you are happy, sad or depressed, buddy app allows you express yourself well romantically.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="whyImage">
+                <img src="../static/images/why-image.svg" />
+            </div>
+        </main>
+    </section>
+
+    <script src="../static/js/main.js"></script>
+</body>
+</html>
