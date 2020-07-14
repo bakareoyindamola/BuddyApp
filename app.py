@@ -1,4 +1,8 @@
-from flask import Flask, render_template, request
+import os
+import io
+import sqlite3
+import csv
+from flask import Flask, render_template, request, send_file, make_response
 from database import database_manager
 
 app = Flask(__name__)
@@ -15,6 +19,22 @@ def hello():
         database_manager.insert_into_db(email)
         return render_template("index.html", name="Buddy App", message="Email captured successfully")    
     return render_template("index.html", name="Buddy App", message='')
+
+@app.route('/export')
+def export():
+    string_io = io.StringIO()
+    csv_writer = csv.writer(string_io)
+    connection = sqlite3.connect("./database/BuddyApp.db")
+    cursor = connection.cursor()
+    query = "SELECT * FROM notification"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    csv_writer.writerow(i[0] for i in cursor.description)
+    csv_writer.writerows(rows)
+    response = make_response(string_io.getvalue())
+    response.headers['Content-Disposition'] = 'attachment; filename=buddy_app_subscribers_email.csv'
+    response.headers['Content-type'] = 'text/csv'
+    return response
 
 if __name__ == "__main__":
     database_manager.create_database()
