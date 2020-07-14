@@ -1,10 +1,7 @@
 import sqlite3
 
 def create_database():
-    connection = sqlite3.connect('./database/BuddyApp.db')
-
-    cursor = connection.cursor()
-
+    connection = sqlite3.connect("./database/BuddyApp.db")
     create_table = "CREATE TABLE IF NOT EXISTS notification (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL)"
 
     connection.execute(create_table)
