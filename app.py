@@ -38,4 +38,4 @@ def export():
 
 if __name__ == "__main__":
     database_manager.create_database()
-    app.run(debug=False)
+    app.run(debug=True)
