@@ -2,6 +2,7 @@
 $textColor: #3391CC;
 $textLeadColor: #4F4F4F;
 $textHeaderColor: #022B69;
+$pColor: #333333;
 
 * {
     box-sizing: border-box;
@@ -29,15 +30,36 @@ a {
     text-decoration: none;
 }
 
-@mixin maximumWidth {
+@mixin max-width($arg) {
+    @media screen and (max-width: $arg) {
+        @content;
+    }
+}
+
+@mixin min-width($arg) {
+    @media screen and (min-width: $arg) {
+        @content;
+    }
+}
+
+@mixin maximumWidth($t, $b) {
     max-width: 1440px;
     margin: auto;
-    padding: 0 116px;
+    padding: $t 116px $b;
+
+    @include max-width(1350px) {
+        padding: $t 80px $b;
+    }
+
+    @include max-width(1080px) {
+        padding: $t 40px $b;
+    }
 }
 
 @mixin h2 {
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 2rem;
+    color: $textHeaderColor;
 }
 
 @mixin button($width) {
@@ -55,21 +77,10 @@ a {
     text-align: center;
 }
 
-@mixin backgroundImage($arg) {
-    background-image: url($arg);
-    background-repeat: no-repeat;
-    background-position: bottom -4px right -4px;
-}
-
 @mixin flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-@mixin padding($top, $bottom) {
-    padding-top: $top;
-    padding-bottom: $bottom;
 }
 
 // Header Styles
@@ -78,7 +89,7 @@ header {
     padding: 16px 0;
 
     nav {
-        @include maximumWidth;
+        @include maximumWidth(0, 0);
     }
 }
 
@@ -86,45 +97,27 @@ header {
 .heroSection {
     position: relative;
     overflow: hidden;
-
-    .overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0%;
-        z-index: 2;
-        background-color: $textHeaderColor;
-    }
-
-    .first {
-        top: 0;
-    }
-
-    .second {
-        top: 33.3%;
-    }
-
-    .third {
-        top: 66.6%;
-    }
+    background-color: #FAFAFA;
+    background-image: url('../new-images/Polygon\ 2.png');
+    background-position: top -70px right -140px;
+    background-repeat: no-repeat;
 
     .heroWrapper {
-        @include maximumWidth;
+        @include maximumWidth(50px, 50px);
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
-        @include padding(104px, 89px);
+        align-items: center;
     
         .heroContents {
-            max-width: 552px;
+            max-width: 693px;
             width: 100%;
             padding-bottom: 32px;
     
             .topText {
                 @include h2;
-                line-height: 62px;
+                line-height: 35px;
                 color: $textColor;
-                margin-bottom: 23px;
+                margin-bottom: 35px;
             }
     
             .leadText{
@@ -143,6 +136,7 @@ header {
             }
     
             form {
+                max-width: 552px;
                 margin: 23px 0 64px;
                 width: 100%;
                 display: flex;
@@ -192,12 +186,64 @@ header {
                 }
             }
         }
-    
+    }
+
+    @include max-width(1360px) {
+        background-image: none;
+    }
+
+    @include max-width(880px) {
         .heroImage {
+            display: none;
+        }
+    }
+}
+
+// Introduction Styles
+.introductionWrapper {
+
+    .introductionContents {
+        @include maximumWidth(76px, 56px);
+        @include flex();
+        justify-content: space-evenly;
+
+        .introductionImage {
+            max-width: 100%;
+            
+            img {
+                width: 100%;
+            }
+        }
+
+        .introductionText {
+            max-width: 546px;
             width: 100%;
-    
-            svg {
-                
+
+            h2 {
+                @include h2
+                margin-bottom: 37px;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 22px;
+                color: $pColor;
+                margin-bottom: 34px;
+            }
+
+            a {
+                display: inline-block;
+                margin-top: 28px;
+                @include button(222px);
+            }
+        }
+
+        @include max-width(950px) {
+            flex-direction: column;
+            text-align: center;
+
+            .introductionText {
+                max-width: 746px;
             }
         }
     }
@@ -207,99 +253,89 @@ header {
 // Smart Features Styles
 .smartFeatures {
     background: #F4F8FC;
-    @include padding(117px, 114px);
     
     .smartFeatures-content {
-        @include maximumWidth();
+        @include maximumWidth(94px, 70px);
 
         h2 {
-            font-size: 2.75rem;
-            line-height: 26px;
-            color: $textHeaderColor;
+            @include h2;
             text-align: center;
         }
 
-        .featuresCard {
-            max-width: 1207px;
-            margin: auto;
-            margin-top: 74px;
-            width: 100%;
+        .featureCardWrapper {
+            margin-top: 63px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 393px;
-            grid-column-gap: 32px;
 
-            .card {
-                box-shadow: 1px 2px 4px rgba(214, 217, 223, 0.5);
-                border-radius: 10px;
-                background-color: #FFFFFF;
-                padding: 32px;
+            .featuresCard {
+                max-width: 1207px;
+                margin: auto;
+                width: 100%;
+                display: grid;
+                grid-template-rows: repeat(2, 334px);
+                
+                .card {
+                    box-shadow: 1px 2px 4px rgba(214, 217, 223, 0.5);
+                    border-radius: 10px;
+                    background-color: #FFFFFF;
+                    padding: 32px;
+                    text-align: center;
+                    max-width: 420px;
+                    margin: auto;
+                    max-height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+    
+                    svg {
+                        margin-bottom: 22px;
+                    }
+    
+                    h3 {
+                        font-weight: 600;
+                        font-size: 1.5rem;
+                        line-height: 26px;
+                        color: $textHeaderColor;
+                    }
+    
+                    p {
+                        font-size: 0.75rem;
+                        line-height: 22px;
+                        color: rgba(2, 43, 105, 0.8);
+                        margin-top: 20px;
+                    }
+                }
+            }
 
-                svg {
-                    margin-bottom: 22px;
+            .featureImage {
+                display: none;
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            @include min-width(800px) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 30px;
+            }
+
+            @include min-width(1140px) {
+                grid-template-columns: 291px 1fr 291px;
+                grid-column-gap: 30px;
+
+                .featuresCard {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    width: 100%;
+                    min-height: 100%;
+                    margin-bottom: 0;
                 }
 
-                h3 {
-                    font-weight: 600;
-                    font-size: 1.5rem;
-                    line-height: 26px;
-                    color: $textHeaderColor;
+                .featureImage {
+                    display: grid;
                 }
-
-                p {
-                    font-size: 1rem;
-                    line-height: 22px;
-                    color: rgba(2, 43, 105, 0.8);
-                    margin-top: 20px;
-                }
-            }
-
-            .card-1 {
-                @include backgroundImage("../images/voice-background.svg")
-            }
-
-            .card-2 {
-                @include backgroundImage("../images/mood-background.svg")
-            }
-
-            .card-3 {
-                @include backgroundImage("../images/local-dialect-background.svg")
-            }
-        }
-    }
-}
-
-// Introduction Styles
-.introductionWrapper {
-
-    .introductionContents {
-        @include maximumWidth();
-        @include flex();
-        @include padding(178px, 193px);
-
-        .introductionText {
-            max-width: 546px;
-            width: 100%;
-
-            h2 {
-                font-weight: 600;
-                font-size: 40px;
-                line-height: 44px;
-                color: $textHeaderColor;
-                margin-bottom: 42px;
-            }
-
-            p {
-                font-size: 1rem;
-                line-height: 22px;
-                color: rgba(2, 43, 105, 0.8);
-                margin-bottom: 20px;
-            }
-
-            a {
-                display: inline-block;
-                margin-top: 81px;
-                @include button(222px);
             }
         }
     }
@@ -308,24 +344,23 @@ header {
 // Why Download Styles
 .whyWrapper {
     background-color: $textColor;
-    @include padding(135px, 129px)
+    overflow: hidden;
 
     .whyContents {
-        @include maximumWidth();
+        @include maximumWidth(122px, 38px);
         @include flex();
         color: #FFFFFF;
 
         .whyText {
+            max-width: 619px;
             h2 {
                 font-weight: 600;
-                font-size: 2.5rem;
+                font-size: 2rem;
                 line-height: 44px;
-                margin-bottom: 56px;
+                margin-bottom: 62px;
             }
 
             .whyItemWrapper {
-                margin-left: 58px;
-
                 .whyItem {
                     display: flex;
                     width: 100%;
@@ -361,9 +396,8 @@ header {
                     }
     
                     .whyContent {
-                        max-width: 566px;
                         width: 100%;
-                        margin-left: 49px;
+                        margin-left: 48px;
     
                         span {
                             display: inline-block;
@@ -379,6 +413,26 @@ header {
                         }
                     }
                 }
+            }
+        }
+
+        .whyImageWrapper {
+            position: relative;
+
+            .whyCircle {
+                position: absolute;
+                width: 612px;
+                height: 612px;
+                border-radius: 100%;
+                background-color: #2E89C2;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .whyImage {
+                position: relative;
+                z-index: 2;
             }
         }
     }
