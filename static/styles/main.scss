@@ -748,10 +748,21 @@ footer {
 }
 
 
+.video {
+    background-color: $textHeaderColor;
+}
 
-.iframe {
-    @include maximumWidth(90px, 90px ) {
+.videoWrapper {
+    @include maximumWidth(90px, 90px);
+
+    div {
+        border: 1px solid white;
+        max-width: 600px;
+        width: 100%;
         margin: auto;
+
+        video {
+            max-width: 100%;
+        }
     }
-    
 }

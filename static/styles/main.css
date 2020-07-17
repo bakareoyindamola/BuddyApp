@@ -966,32 +966,43 @@ footer {
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
 }
-/*# sourceMappingURL=main.css.map */
 
-
-img.vert-move {
-  -webkit-animation: mover 1s infinite  alternate;
-  animation: mover 1s infinite  alternate;
-}
-img.vert-move {
-  -webkit-animation: mover 1s infinite  alternate;
-  animation: mover 1s infinite  alternate;
-}
-@-webkit-keyframes mover {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
-}
-@keyframes mover {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
+.video {
+  background-color: #022B69;
 }
 
-@media screen and (max-width: 1200px) {
-  img.app-description-img {
-      max-width: 280px;
-      height: auto;
-      margin: auto;
+.videoWrapper {
+  max-width: 1440px;
+  margin: auto;
+  padding: 90px 116px 90px;
+}
+
+@media screen and (max-width: 1350px) {
+  .videoWrapper {
+    padding: 90px 80px 90px;
   }
 }
 
+@media screen and (max-width: 1080px) {
+  .videoWrapper {
+    padding: 90px 40px 90px;
+  }
+}
 
+@media screen and (max-width: 450px) {
+  .videoWrapper {
+    padding: 90px 20px 90px;
+  }
+}
+
+.videoWrapper div {
+  border: 1px solid white;
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+.videoWrapper div video {
+  max-width: 100%;
+}
+/*# sourceMappingURL=main.css.map */
