@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" />
     <title>{{name}}</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js" integrity="sha512-elauk8NI35rjTlatfRQxeqmJoieQlfm0W8AeQVps+j+KkMDdaqNxVazFzwyU7uSOyeeVn/VLbGYLwOR/D5I6Kw==" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href= "{{ url_for('static', filename='styles/main.css') }}"/>
 </head>
 <body>
@@ -54,7 +56,7 @@
                 </div>
             </div>
 
-            <div class="heroImage">
+            <div data-aos="fade-left" data-aos-duration="1500"  class="heroImage">
                 <img src="../static/new-images/iPhone 11 Pro-1.png" alt="" />
             </div>
         </main>
@@ -62,11 +64,11 @@
 
     <section class="introductionWrapper">
         <main class="introductionContents">
-            <div class="introductionImage">
+            <div data-aos="fade-right" data-aos-duration="1500" class="introductionImage">
                 <img src="../static/new-images/iPhone 11 Pro (11) 1.png" alt="" />
             </div>
 
-            <div class="introductionText">
+            <div data-aos="zoom-in" data-aos-duration="1500"  class="introductionText">
                 <h2>Introducing the Buddy App</h2>
                 <p class="introTopText">Buddy app is a mobile app being built to relieve its users of the daily hustle and stress attached witth adolescent. This app is one of its kind and its gives great experience that makes you feel like you are conversing with a real human. However, the Buddy app solves the problem attached with being single and feeling lonely without a romantic partner. This app allows you converse freely in your local dialect.</p>
                 <p class="introLastText">Buddy app brings fun to adulthood. There are lots of single people who are dying of loneliness and no one to love them; Buddy app is here to serve as your romantic partner. With buddy app, no more sense of loneliness or boredom. This app allows you set your romantic partner to talk to you in the tone and language you want.</p>
@@ -81,7 +83,7 @@
 
             <div class="featureCardWrapper">
                 <div class="featuresCard">
-                    <div class="card card-1">
+                    <div data-aos="fade-left" data-aos-duration="2000" class="card card-1">
                         <svg width="71" height="71">
                             <use xlink:href="../static/styles/homepage.svg#voice-icon" />
                         </svg>
@@ -90,7 +92,7 @@
                         <p>The voice assistant feature on buddy app gives you the opportunity to set your partner in the exact voice you want it to talk and converse with you.</p>
                     </div>
     
-                    <div class="card card-2">
+                    <div data-aos="fade-left" data-aos-duration="2000" class="card card-2">
                         <svg width="71" height="71">
                             <use xlink:href="../static/styles/homepage.svg#mood-icon" />
                         </svg>
@@ -100,12 +102,12 @@
                     </div>
                 </div>
 
-                <div class="featureImage">
+                <div data-aos="zoom-in" data-aos-duration="2000" class="featureImage">
                     <img src="../static/new-images/iPhone 11 Pro (8) 1.png" alt="" />
                 </div>
 
                 <div class="featuresCard">
-                    <div class="card card-3">
+                    <div data-aos="flip-right" data-aos-duration="2000" class="card card-3">
                         <svg width="71" height="71">
                             <use xlink:href="../static/styles/homepage.svg#local-dialect-icon" />
                         </svg>
@@ -114,7 +116,7 @@
                         <p>The local dialect feature on buddy app gives you the opportunity to chat and converse in your prefered language and local dialect freely.</p>
                     </div>
 
-                    <div class="card card-2">
+                    <div data-aos="flip-right" data-aos-duration="2000" class="card card-2">
                         <svg width="71" height="71">
                             <use xlink:href="../static/styles/homepage.svg#mood-icon" />
                         </svg>
@@ -129,7 +131,7 @@
 
     <section class="whyWrapper">
         <main class="whyContents">
-            <div class="whyText">
+            <div data-aos="fade-up" class="whyText">
                 <h2>Why Download Buddy App?</h2>
                 <div class="whyItemWrapper">
                     <div class="whyItem">
@@ -158,7 +160,7 @@
                 </div>
             </div>
 
-            <div class="whyImageWrapper">
+            <div data-aos="fade-left" class="whyImageWrapper">
                 <div class="whyCircle"></div>
                 <div class="whyImage">
                     <img src="../static/new-images/iPhone 11 Pro (1) 2 (1).png" />
@@ -177,11 +179,11 @@
 
     <section class="prosWrapper">
         <main>
-            <div class="prosImage">
+            <div data-aos="fade-right" class="prosImage">
                 <img src="../static/new-images/Group 1118 (1).png" alt="" />
             </div>
 
-            <div class="prosTextWrapper">
+            <div data-aos="fade-left" class="prosTextWrapper">
                 <h3>Pros of Buddy App</h3>
                 <p>With Buddy app, adulthod beomes easy. This app is your best buddy that communicate with you freely in all your moods.</p>
 

@@ -1,3 +1,5 @@
+AOS.init();
+
 gsap.from('.logo', .8, {
     opacity: 0,
     x: -20,
