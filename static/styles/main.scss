@@ -747,3 +747,11 @@ footer {
     transform: translate(-50%, -50%) scale(1);
 }
 
+
+
+.iframe {
+    @include maximumWidth(90px, 90px ) {
+        margin: auto;
+    }
+    
+}
