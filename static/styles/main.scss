@@ -608,6 +608,14 @@ header {
     }
 }
 
+// Footer Styles
+footer {
+    background-color: $textColor;
+    padding: 20px 0;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 // Registered Style
 #overlay {
     position: fixed;
