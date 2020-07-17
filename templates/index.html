@@ -1,15 +1,21 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" />
     <title>{{name}}</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js" integrity="sha512-elauk8NI35rjTlatfRQxeqmJoieQlfm0W8AeQVps+j+KkMDdaqNxVazFzwyU7uSOyeeVn/VLbGYLwOR/D5I6Kw==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href= "{{ url_for('static', filename='styles/main.css') }}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"
+        integrity="sha512-elauk8NI35rjTlatfRQxeqmJoieQlfm0W8AeQVps+j+KkMDdaqNxVazFzwyU7uSOyeeVn/VLbGYLwOR/D5I6Kw=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}" />
+
 </head>
+
 <body>
     <header>
         <nav class="logo">
@@ -18,65 +24,67 @@
     </header>
 
     <section class="heroSection">
-        <!-- <div class="overlay first"></div>
-        <div class="overlay second"></div>
-        <div class="overlay third"></div> -->
-        
         <main class="heroWrapper">
             <div class="heroContents">
-                <h2 class="topText">Imagine having a app which talks to you?</h2>
-                <p class="leadText">The busy life has pushed people into loneliness and with no sense of romance. We are working on a great mobile app that can talk to you in your preferred language, tone and mood</p>
+                <h2 class="topText" data-aos="flip-up">Imagine having a app which talks to you?</h2>
+                <p class="leadText">The busy life has pushed people into loneliness and with no sense of romance. We are
+                    working on a great mobile app that can talk to you in your preferred language, tone and mood</p>
 
                 <h3 class="notifiedText">Get notified when we launch</h3>
-                <form method="POST" action="{{ url_for('hello') }}">
-                    <input type="email" placeholder="Enter Email" name="email" />
-                    <button type="submit">Notify Me</button>
-                </form>
+
                 <p>{{message}}</p>
+                <form method="POST" action="{{ url_for('hello') }}">
+                    <input type="email" placeholder="Enter Email" name="email" id="email1" />
+                    <button id="submitBtn1" type="submit" disabled>Notify Me</button>
+                </form>
 
                 <div class="timer">
                     <div>
-                        <h2>45</h2>
+                        <h2 id="days">45</h2>
                         <p>Day(s)</p>
                     </div>
 
                     <div>
-                        <h2>32</h2>
+                        <h2 id="hours">32</h2>
                         <p>Hours</p>
                     </div>
 
                     <div>
-                        <h2>60</h2>
+                        <h2 id="minutes">60</h2>
                         <p>Minutes</p>
                     </div>
 
                     <div>
-                        <h2>28</h2>
+                        <h2 id="seconds">28</h2>
                         <p>Seconds</p>
                     </div>
                 </div>
             </div>
 
             <div class="heroImage">
-                <img src="../static/new-images/iPhone 11 Pro-1.png" alt="" />
-                <!-- <svg class="hero-img" width="561" height="489">
-                    <use xlink:href="../static/styles/homepage.svg#hero-image" />
-                </svg> -->
+                <img src="../static/new-images/iPhone 11 Pro-1.png" alt="" data-aos="zoom-in" />
             </div>
         </main>
     </section>
 
     <section class="introductionWrapper">
         <main class="introductionContents">
-            <div class="introductionImage">
-                <img src="../static/new-images/Group 1102 (1).png" alt="" />
+            <div class="introductionImage" data-aos="zoom-in-right">
+                <img src="../static/new-images/iPhone 11 Pro (11) 1.png" alt="" />
             </div>
 
-            <div class="introductionText">
+            <div class="introductionText" data-aos="zoom-in-left" data-aos-delay="1000">
                 <h2>Introducing the Buddy App</h2>
-                <p class="introTopText">Buddy app is a mobile app being built to relieve its users of the daily hustle and stress attached witth adolescent. This app is one of its kind and its gives great experience that makes you feel like you are conversing with a real human. However, the Buddy app solves the problem attached with being single and feeling lonely without a romantic partner. This app allows you converse freely in your local dialect.</p>
-                <p class="introLastText">Buddy app brings fun to adulthood. There are lots of single people who are dying of loneliness and no one to love them; Buddy app is here to serve as your romantic partner. With buddy app, no more sense of loneliness or boredom. This app allows you set your romantic partner to talk to you in the tone and language you want.</p>
-                <a href="">Notify Me</a>
+                <p class="introTopText">Buddy app is a mobile app being built to relieve its users of the daily hustle
+                    and stress attached witth adolescent. This app is one of its kind and its gives great experience
+                    that makes you feel like you are conversing with a real human. However, the Buddy app solves the
+                    problem attached with being single and feeling lonely without a romantic partner. This app allows
+                    you converse freely in your local dialect.</p>
+                <p class="introLastText">Buddy app brings fun to adulthood. There are lots of single people who are
+                    dying of loneliness and no one to love them; Buddy app is here to serve as your romantic partner.
+                    With buddy app, no more sense of loneliness or boredom. This app allows you set your romantic
+                    partner to talk to you in the tone and language you want.</p>
+                <button data-modal-target="#notify-me">Notify Me</button>
             </div>
         </main>
     </section>
@@ -87,84 +95,109 @@
 
             <div class="featureCardWrapper">
                 <div class="featuresCard">
-                    <div class="card card-1">
+                    <div class="card card-1" data-aos="flip-left">
                         <svg width="71" height="71">
                             <use xlink:href="../static/styles/homepage.svg#voice-icon" />
                         </svg>
-    
+
                         <h3>Voice Assistant</h3>
-                        <p>Buddy app relieves you of the stress of searching for a romantic partner. This app gives you the opportunity to chat with your prefered tone and voice.</p>
+                        <p>The voice assistant feature on buddy app gives you the opportunity to set your partner in the
+                            exact voice you want it to talk and converse with you.</p>
                     </div>
-    
-                    <div class="card card-2">
+
+                    <div class="card card-2" data-aos="flip-left">
                         <svg width="71" height="71">
                             <use xlink:href="../static/styles/homepage.svg#mood-icon" />
                         </svg>
-    
+
                         <h3>Mood Prediction</h3>
-                        <p>Buddy app relieves you of the stress of searching for a romantic partner. This app predicts your mood based on your body movement and motion.</p>
+                        <p>The mood prediction feature on buddy app predicts your mood based on your body movement and
+                            motion. With this your partner knows your exact mood.</p>
                     </div>
                 </div>
 
-                <div class="featureImage">
-                    <img src="../static/new-images/iPhone 11 Pro (3) 1 (1).png" alt="" />
+                <div class="featureImage" data-aos="zoom-in-up">
+                    <img src="../static/new-images/iPhone 11 Pro (8) 1.png" alt="" />
                 </div>
 
                 <div class="featuresCard">
-                    <div class="card card-2">
-                        <svg width="71" height="71">
-                            <use xlink:href="../static/styles/homepage.svg#mood-icon" />
-                        </svg>
-    
-                        <h3>Mood Prediction</h3>
-                        <p>Buddy app relieves you of the stress of searching for a romantic partner. This app predicts your mood based on your body movement and motion.</p>
-                    </div>
-    
-                    <div class="card card-3">
+                    <div class="card card-3" data-aos="flip-right">
                         <svg width="71" height="71">
                             <use xlink:href="../static/styles/homepage.svg#local-dialect-icon" />
                         </svg>
-    
+
                         <h3>Local Dialect</h3>
-                        <p>Buddy app relieves you of the stress of searching for a romantic partner. This app gives you the privilege to chat and converse in your preferred local dialect.</p>
+                        <p>The local dialect feature on buddy app gives you the opportunity to chat and converse in your
+                            prefered language and local dialect freely.</p>
+                    </div>
+
+                    <div class="card card-2" data-aos="flip-right">
+                        <svg width="71" height="71">
+                            <use xlink:href="../static/styles/homepage.svg#mood-icon" />
+                        </svg>
+
+                        <h3>Voice Memo</h3>
+                        <p>The voice memo feature allows you have recordings of your voice chat with your phone and you
+                            get to choose the audio quality of your conversation.</p>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
+
+        <section class="">
+            <main class="iframe">
+                <iframe src="" frameborder="0">
+
+                </iframe>
+            </main>
+            
+        </section>
+
+
+        
+
     </section>
 
     <section class="whyWrapper">
         <main class="whyContents">
             <div class="whyText">
-                <h2>Why Download Buddy App?</h2>
+                <h2 data-aos="zoom-in-up">Why Download Buddy App?</h2>
                 <div class="whyItemWrapper">
-                    <div class="whyItem">
+                    <div class="whyItem" data-aos="fade-right">
                         <span class="whyNumber"></span>
                         <div class="whyContent">
                             <span>Chat dirty in your local dialect</span>
-                            <p>Buddy app is a mobile app that gives you the opportunity to chat dirty in your local dialect. Whatever way you want to converse, feel free to chat in your dialect.</p>
+                            <p>Buddy app is a mobile app that gives you the opportunity to chat dirty in your local
+                                diaect. Whatever way you want to converse, feel free to chat in your dialect or
+                                language.</p>
                         </div>
                     </div>
-    
-                    <div class="whyItem">
+
+                    <div class="whyItem" data-aos="fade-right">
                         <span class="whyNumber"></span>
                         <div class="whyContent">
                             <span>Romantic sense of feeling in love</span>
-                            <p>Buddy app gives you a romantic feeling of being in love. This app serves as your romantic partner and you will feel being in real love with buddy app.</p>
+                            <p>With buddy app, your phone is your romantic partner. This app communicates with you like
+                                a real human and gives you a romantic sense of feeling loved.</p>
                         </div>
                     </div>
-    
-                    <div class="whyItem">
+
+                    <div class="whyItem" data-aos="fade-right">
                         <span class="whyNumber"></span>
                         <div class="whyContent">
                             <span>Express yourself freely in any mood</span>
-                            <p>Buddy app gives you the opportunity to express yourself in any mood you are. Whether you are happy, sad or depressed, buddy app allows you express yourself well romantically.</p>
+                            <p>Buddy app alows you express yourself in any mood you are. Whether you are happy, sad or
+                                depressed, buddy app allows you express yourself well romantically.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="whyImageWrapper">
+            <div class="whyImageWrapper" data-aos="fade-left">
                 <div class="whyCircle"></div>
                 <div class="whyImage">
                     <img src="../static/new-images/iPhone 11 Pro (1) 2 (1).png" />
@@ -173,6 +206,107 @@
         </main>
     </section>
 
+    <section class="prosWrapper">
+        <main>
+            <div class="prosImage" data-aos="fade-left">
+                <img class="vert-move" src="../static/new-images/Group 1118 (1).png" alt="" />
+            </div>
+
+            <div class="prosTextWrapper" data-aos="fade-right">
+                <h3>Pros of Buddy App</h3>
+                <p>With Buddy app, adulthod beomes easy. This app is your best buddy that communicate with you freely in
+                    all your moods.</p>
+
+                <div class="pros">
+                    <div>
+                        <img src="../static/new-images/tick.png" alt="" />
+                        <span>Easy to use</span>
+                    </div>
+
+                    <div>
+                        <img src="../static/new-images/tick.png" alt="" />
+                        <span>Beautiful and friendly user interface.</span>
+                    </div>
+
+                    <div>
+                        <img src="../static/new-images/tick.png" alt="" />
+                        <span>iOS and Andriod Compatible.</span>
+                    </div>
+
+                    <div>
+                        <img src="../static/new-images/tick.png" alt="" />
+                        <span>Smart retina with amazing user experience.</span>
+                    </div>
+
+                    <div>
+                        <img src="../static/new-images/tick.png" alt="" />
+                        <span>Supports 100+ local dialect and langusges.</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <footer>
+        <p>&copy; 2020 HNG TECH</p>
+    </footer>
+
+    <div id="modaloverlay"></div>
+
+    <div class="notify-me" id="notify-me">
+        <div class="logo">
+            <img src="../static/images/header-logo.png" alt="" />
+        </div>
+
+        <h3>Join our email list</h3>
+        <p>Be among the first people to know when we launch our app. Input your email below to get notified</p>
+        <form method="POST" action="{{ url_for('hello') }}">
+            <input type="email" placeholder="Enter Email" name="email" id="email2" />
+            <button id="submitBtn2" type="submit" disabled>Notify Me</button>
+        </form>
+    </div>
+
+    {% if success %}
+    <div id="overlay"></div>
+
+    <div class="success-registration" id="success-registration">
+        <div class="success-logo">
+            <img src="../static/images/header-logo.png" alt="" />
+        </div>
+
+        <div class="success-mark">
+            <img src="../static/new-images/Vector.png" alt="" />
+        </div>
+
+        <h3>Email registered successfully</h3>
+        <p>Thank you for submitting your email. You'll get notified when we launch</p>
+    </div>
+    {% endif %}
+
+    {% if success == False %}
+    <div id="overlay"></div>
+
+    <div class="success-registration" id="success-registration">
+        <div class="success-logo">
+            <img src="../static/images/header-logo.png" alt="" />
+        </div>
+
+        <div class="success-mark">
+            <img src="../static/new-images/Group 1118.png" alt="" />
+        </div>
+
+        <h3>Email already exist</h3>
+        <p>Oops! This email has already been registered.</p>
+    </div>
+    {% endif %}
+
+    <script src="../static/js/timer.js"></script>
     <script src="../static/js/main.js"></script>
+    <script src="../static/js/animations.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
+
 </html>

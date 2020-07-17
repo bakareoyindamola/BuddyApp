@@ -12,13 +12,13 @@ def hello():
     if request.method ==  "POST":
         email = request.form['email']
         if not email:
-            return render_template("index.html", name="Buddy App", message='Email cannot be blank') 
+            return render_template("index.html", name="Buddy App", message='Email cannot be blank!', success=None) 
         result = database_manager.find_by_email(email)
         if result is not None:
-            return render_template("index.html", name="Buddy App", message='Email Exist')
+            return render_template("index.html", name="Buddy App", message='Email Exist, please try another email', success=False)
         database_manager.insert_into_db(email)
-        return render_template("index.html", name="Buddy App", message="Email captured successfully")    
-    return render_template("index.html", name="Buddy App", message='')
+        return render_template("index.html", name="Buddy App", success=True)
+    return render_template("index.html", name="Buddy App", message='', success='')
 
 @app.route('/export')
 def export():
