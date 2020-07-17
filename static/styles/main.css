@@ -812,6 +812,13 @@ header nav {
   }
 }
 
+footer {
+  background-color: #3391CC;
+  padding: 20px 0;
+  text-align: center;
+  color: #FFFFFF;
+}
+
 #overlay {
   position: fixed;
   -webkit-transition: 200ms ease-in-out;
